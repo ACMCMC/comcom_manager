@@ -4,4 +4,8 @@ function mencion(args: any) {
     service.getWebClient().chat.postMessage({channel: args['channel'], text: 'Hola!'});
 }
 
-export {mencion};
+function enviarEvento(args: any) {
+    console.log('Enviar evento');
+}
+
+export { mencion, enviarEvento };

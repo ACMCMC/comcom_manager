@@ -1,7 +1,7 @@
 import { WebClient, LogLevel } from '@slack/web-api';
 import { createEventAdapter, SlackEventAdapter } from '@slack/events-api';
 import { createMessageAdapter, SlackMessageAdapter } from '@slack/interactive-messages';
-import {mencion} from '../controllers/slack';
+import {mencion, enviarEvento} from '../controllers/slack';
 
 const slackSigningSecret = process.env.SLACK_SIGNING_SECRET || '';
 
@@ -34,6 +34,8 @@ class slackService {
 
     private setupListeners() {
         this.slackEvents.addListener('app_mention', mencion);
+
+        this.slackInteractions.action('enviar_evento', enviarEvento);
     }
     
 }
