@@ -8,6 +8,6 @@ const port= process.env.PORT || 8080;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use(gestionRouter);
+app.use('/gestion', gestionRouter);
 
 app.listen(port, () => console.log('Express iniciado'));
