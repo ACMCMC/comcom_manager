@@ -28,11 +28,11 @@ app.post("/action-endpoint", (req: Request, res: Response) => {
                 path: '/api/chat.postMessage',
                 method: 'POST',
                 headers: {
-                  'Content-Type': 'application/json'
+                  'Content-Type': 'application/json',
+                  Authorization: 'Bearer xoxb-1048445467270-1728836818599-smr69fhm9fFjSoIBichlX03x',
                 }
             };
             const body = {
-                token: "xoxb-1048445467270-1728836818599-smr69fhm9fFjSoIBichlX03x",
                 channel: req.body["channel"],
                 text: "Hola! Aquí estoy, " + "<@" + req.body["user"] + ">!"
             }
