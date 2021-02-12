@@ -1,5 +1,5 @@
-import { WebClient, LogLevel } from "@slack/web-api";
-import { createEventAdapter, SlackEventAdapter } from "@slack/events-api";
+import { WebClient, LogLevel } from '@slack/web-api';
+import { createEventAdapter, SlackEventAdapter } from '@slack/events-api';
 import {mencion} from '../controllers/slack';
 
 const slackSigningSecret = process.env.SLACK_SIGNING_SECRET || '';
