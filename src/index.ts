@@ -1,6 +1,7 @@
 import express, { Application, Request, Response, NextFunction } from 'express';
 import bodyParser from 'body-parser';
-import http, {IncomingMessage} from 'http';
+import https from 'https';
+import http from 'http';
 
 const app: Application = express();
 const port= process.env.PORT || 8080;
@@ -22,7 +23,7 @@ app.post('/action-endpoint', (req: Request, res: Response) => {
     if (req.body['type']==='event_callback') {
         const event = req.body['event'];
         if (event['type']==='app_mention') {
-            const options: http.RequestOptions = {
+            const options: https.RequestOptions = {
                 host: 'slack.com',
                 port: 443,
                 path: '/api/chat.postMessage',
@@ -36,7 +37,7 @@ app.post('/action-endpoint', (req: Request, res: Response) => {
                 channel: req.body['channel'],
                 text: 'Hola! Aquí estoy, ' + '<@' + req.body['user'] + '>!'
             }
-            const request_msg = http.request(options, (response: IncomingMessage) => {console.log(response)});
+            const request_msg = https.request(options, (response: http.IncomingMessage) => {console.log(response)});
             request_msg.write(JSON.stringify(body));
             request_msg.on('error', (err: Error) => {console.error(err)});
             request_msg.end();
