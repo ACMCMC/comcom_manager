@@ -1,7 +1,10 @@
 import express, { Application, Request, Response, NextFunction } from 'express';
+import bodyParser from 'body-parser';
 
 const app: Application = express();
 const port= process.env.PORT || 8080;
+
+app.use(bodyParser.json());
 
 app.get( "/prueba", (req: Request, res: Response) => {
     res.status(200).send("Hola mundo!");
