@@ -19,24 +19,27 @@ app.post("/action-endpoint", (req: Request, res: Response) => {
     console.log(req.body);
     res.status(200).end();
 
-    if (req.body["type"]==="app_mention") {
-        const options: https.RequestOptions = {
-            host: 'slack.com',
-            port: 443,
-            path: '/api/chat.postMessage',
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json'
+    if (req.body["type"]==="event_callback") {
+        const event = req.body["event"];
+        if (event["type"]==="app_mention") {
+            const options: https.RequestOptions = {
+                host: 'slack.com',
+                port: 443,
+                path: '/api/chat.postMessage',
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json'
+                }
+            };
+            const body = {
+                token: "xoxb-1048445467270-1728836818599-smr69fhm9fFjSoIBichlX03x",
+                channel: req.body["channel"],
+                text: "Hola! Aquí estoy, " + "<@" + req.body["user"] + ">!"
             }
-        };
-        const body = {
-            token: "xoxb-1048445467270-1728836818599-smr69fhm9fFjSoIBichlX03x",
-            channel: req.body["channel"],
-            text: "Hola! Aquí estoy, " + "<@" + req.body["user"] + ">!"
+            const request_msg = https.request(options, () => {});
+            request_msg.write(body);
+            request_msg.end();
         }
-        const request_msg = https.request(options, () => {});
-        request_msg.write(body);
-        request_msg.end();
     }
 });
 
