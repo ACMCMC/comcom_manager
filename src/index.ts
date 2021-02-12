@@ -14,6 +14,7 @@ dotEnv.config();
 const app: Application = express();
 
 app.use('/slack', slackService.getSlackEvents().requestListener()) // Para el servidor de Slack
+app.use('/slack-interactions', slackService.getSlackInteractions().requestListener()) // Para el servidor de Slack
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
