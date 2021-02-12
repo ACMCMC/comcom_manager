@@ -13,12 +13,16 @@ class slackService {
     constructor() {
         this.WebClient = new WebClient(this.token, {logLevel: LogLevel.WARN});
         this.slackEvents = createEventAdapter(slackSigningSecret);
-        
+
         this.setupListeners();
     }
 
     public getSlackEvents() : SlackEventAdapter {
         return this.slackEvents;
+    }
+
+    public getWebClient() : WebClient {
+        return this.WebClient;
     }
 
     private setupListeners() {
