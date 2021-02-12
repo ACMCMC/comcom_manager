@@ -6,9 +6,9 @@
   "scripts": {
     "start": "nodemon",
     "build": "tsc",
-    "postinstall": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "deploy": "git add . && git commit -m Heroku && git push heroku main"
+    "deploy": "git add . && git commit -m Heroku && git push heroku main",
+    "postinstall": "npm run build"
   },
   "repository": {
     "type": "git",
