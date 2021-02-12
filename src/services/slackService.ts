@@ -33,4 +33,4 @@ class slackService {
 
 const service: slackService = new slackService();
 
-export = service;
+export {service};

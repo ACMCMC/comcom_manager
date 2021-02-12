@@ -1,7 +1,7 @@
-import slackService from '../services/slackService';
+import {service} from '../services/slackService';
 
 function mencion(args: any) {
-    slackService.WebClient.chat.postMessage({channel: args['channel'], text: 'Hola!'});
+    service.getWebClient().chat.postMessage({channel: args['channel'], text: 'Hola!'});
 }
 
 export {mencion};
