@@ -1,0 +1,34 @@
+{
+  "name": "gestor_comcom",
+  "version": "1.0.0",
+  "description": "Bot de Slack para interactuar con el Comité de Comunicación de ESN",
+  "main": "dist/index.js",
+  "scripts": {
+    "start": "nodemon",
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ACMCMC/gestor_comcom.git"
+  },
+  "keywords": [
+    "slack",
+    "bot"
+  ],
+  "author": "Aldán Creo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ACMCMC/gestor_comcom/issues"
+  },
+  "homepage": "https://github.com/ACMCMC/gestor_comcom#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.11",
+    "nodemon": "^2.0.7",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.1.5"
+  }
+}
