@@ -26,6 +26,7 @@
   "homepage": "https://github.com/ACMCMC/gestor_comcom#readme",
   "dependencies": {
     "@slack/events-api": "^3.0.0",
+    "@slack/oauth": "^2.0.1",
     "@slack/web-api": "^6.0.0",
     "axios": "^0.21.1",
     "body-parser": "^1.19.0",
