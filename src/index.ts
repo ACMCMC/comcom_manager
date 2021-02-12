@@ -38,7 +38,7 @@ app.post('/action-endpoint', (req: Request, res: Response) => {
             };
 
             const resp: Promise<any> = axios.post('https://slack.com/api/chat.postMessage', body, options);
-            resp.catch((err) => console.error(err)).then((resp) => console.error(resp));
+            resp.catch((err) => console.error(err['data'])).then((resp) => console.log(resp['data']));
         }
     }
 });
