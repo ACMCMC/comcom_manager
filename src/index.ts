@@ -14,7 +14,7 @@ app.post("/action-endpoint", (req: Request, res: Response) => {
     if (req.body["type"]==="url_verification") {
         res.status(200).send(req.body["challenge"]);
     }
-    console.log(req);
+    console.log(req.body);
     res.status(200).send("No soportado");
 });
 
