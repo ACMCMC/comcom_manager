@@ -34,7 +34,7 @@ app.post('/action-endpoint', (req: Request, res: Response) => {
             };
             const body = {
                 channel: event['channel'],
-                text: 'Hola! Aquí estoy, ' + '<@' + req.body['user'] + '>!'
+                text: 'Hola! Aquí estoy, ' + '<@' + event['user'] + '>!'
             };
 
             const resp: Promise<any> = axios.post('https://slack.com/api/chat.postMessage', body, options);
