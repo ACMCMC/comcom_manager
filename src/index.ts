@@ -33,7 +33,7 @@ app.post('/action-endpoint', (req: Request, res: Response) => {
                 }
             };
             const body = {
-                channel: req.body['channel'],
+                channel: event['channel'],
                 text: 'Hola! Aquí estoy, ' + '<@' + req.body['user'] + '>!'
             };
 
