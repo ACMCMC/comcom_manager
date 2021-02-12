@@ -37,7 +37,7 @@ app.post("/action-endpoint", (req: Request, res: Response) => {
                 text: "Hola! Aquí estoy, " + "<@" + req.body["user"] + ">!"
             }
             const request_msg = https.request(options, () => {});
-            request_msg.write(body);
+            request_msg.write(JSON.stringify(body));
             request_msg.end();
         }
     }
