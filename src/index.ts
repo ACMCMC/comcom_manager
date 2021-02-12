@@ -7,21 +7,21 @@ const port= process.env.PORT || 8080;
 
 app.use(bodyParser.json());
 
-app.get( "/prueba", (req: Request, res: Response) => {
-    res.status(200).send("Hola mundo!");
+app.get( '/prueba', (req: Request, res: Response) => {
+    res.status(200).send('Hola mundo!');
 } );
 
-app.post("/action-endpoint", (req: Request, res: Response) => {
-    if (req.body["type"]==="url_verification") {
-        res.send(req.body["challenge"]);
+app.post('/action-endpoint', (req: Request, res: Response) => {
+    if (req.body['type']==='url_verification') {
+        res.send(req.body['challenge']);
     }
-    console.log("TIPO: " + req.body["type"]);
+    console.log('TIPO: ' + req.body['type']);
     console.log(req.body);
     res.status(200).end();
 
-    if (req.body["type"]==="event_callback") {
-        const event = req.body["event"];
-        if (event["type"]==="app_mention") {
+    if (req.body['type']==='event_callback') {
+        const event = req.body['event'];
+        if (event['type']==='app_mention') {
             const options: http.RequestOptions = {
                 host: 'slack.com',
                 port: 443,
@@ -33,14 +33,15 @@ app.post("/action-endpoint", (req: Request, res: Response) => {
                 }
             };
             const body = {
-                channel: req.body["channel"],
-                text: "Hola! Aquí estoy, " + "<@" + req.body["user"] + ">!"
+                channel: req.body['channel'],
+                text: 'Hola! Aquí estoy, ' + '<@' + req.body['user'] + '>!'
             }
             const request_msg = http.request(options, (response: IncomingMessage) => {console.log(response)});
             request_msg.write(JSON.stringify(body));
+            request_msg.on('error', (err: Error) => {console.error(err)});
             request_msg.end();
         }
     }
 });
 
-app.listen(port, () => console.log("Express iniciado"));
+app.listen(port, () => console.log('Express iniciado'));
