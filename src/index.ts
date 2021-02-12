@@ -16,6 +16,7 @@ app.post("/action-endpoint", (req: Request, res: Response) => {
         res.send(req.body["challenge"]);
     }
     console.log("TIPO: " + req.body["type"]);
+    console.log(req.body);
     res.status(200).end();
 
     if (req.body["type"]==="app_mention") {
