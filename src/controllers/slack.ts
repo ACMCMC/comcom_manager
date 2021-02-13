@@ -27,13 +27,16 @@ function enviarEventoShortcut(payload: any): any {
     service.getWebClient().views.open({ trigger_id: payload['trigger_id'], view: viewEnviarEvento });
 }
 
-function enviarEventoSubmit(payload: View): any {
-    return {
+function enviarEventoSubmit(payload: View): Promise<any> {
+
+    console.log(payload);
+
+    return Promise.resolve({
         "response_action": "errors",
         "errors": {
           "fecha-action": "You may not select a due date in the past"
         }
-      };
+      });
 }
 
 export { mencion, enviarEvento, hablarConBot, bienvenida, enviarEventoShortcut, enviarEventoSubmit };
