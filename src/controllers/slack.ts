@@ -22,4 +22,8 @@ function enviarEvento(payload: any, respond: Respond): any {
     }).catch((err) => console.error(err)).then((result) => console.log(result));*/
 }
 
-export { mencion, enviarEvento, hablarConBot, bienvenida };
+function enviarModal(payload: any, respond: Respond): any {
+    console.log("daasdsa");
+}
+
+export { mencion, enviarEvento, hablarConBot, bienvenida, enviarModal };
