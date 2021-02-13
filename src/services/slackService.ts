@@ -37,8 +37,8 @@ class slackService {
         this.slackEvents.addListener('app_home_opened', bienvenida);
 
         this.slackInteractions.action({ type: 'button', actionId: 'enviar_evento' }, enviarEvento);
-        this.slackInteractions.shortcut( {callbackId: 'enviar_evento'}, enviarEventoShortcut );
-        this.slackInteractions.viewSubmission( {callbackId: 'enviar_evento'}, enviarEventoSubmit );
+        this.slackInteractions.shortcut({ callbackId: 'enviar_evento' }, enviarEventoShortcut);
+        this.slackInteractions.viewSubmission({ callbackId: 'enviar_evento' }, enviarEventoSubmit);
     }
 
 }
