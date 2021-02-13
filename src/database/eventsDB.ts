@@ -6,7 +6,7 @@ createConnection({
     type: 'postgres',
     url: process.env.DATABASE_URL || '',
     ssl: { rejectUnauthorized: false },
-    logging: true
+    logging: "all"
 }).then((con) => connection = con).catch((err) => console.error(err));
 
 export { connection };
