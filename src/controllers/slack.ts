@@ -33,9 +33,11 @@ function enviarEventoSubmit(payload: View): Promise<any> {
 
     connection.getRepository(Event).findOne(1).then(e => console.log(e)).catch((err) => console.error(err));
 
-    return (Promise.resolve({"response_action": "errors", "errors": {
-        "fecha": "You may not select a due date in the past"
-      }}));
+    return (Promise.resolve({
+        "response_action": "errors", "errors": {
+            "fecha": "You may not select a due date in the past"
+        }
+    }));
 }
 
 export { mencion, enviarEvento, hablarConBot, bienvenida, enviarEventoShortcut, enviarEventoSubmit };
