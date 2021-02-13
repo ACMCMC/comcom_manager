@@ -10,8 +10,7 @@ function hablarConBot(args: any) {
 }
 
 function bienvenida(args: any) {
-    console.log(args);
-    service.getWebClient().views.publish({view: vistasBienvenida, user_id: 'U01D8K4SB2S'});
+    service.getWebClient().views.publish({view: vistasBienvenida, user_id: args['user']});
 }
 
 function enviarEvento(args: any) {
