@@ -1,7 +1,9 @@
+import { Event } from '../entity/Event';
 import { service } from '../services/slackService';
 import { viewBienvenida, viewEnviarEvento } from '../resources/views';
 import { ActionHandler, Respond } from '@slack/interactive-messages';
 import { View } from '@slack/web-api';
+import { connection } from '../database/eventsDB';
 
 function mencion(args: any) {
     service.getWebClient().chat.postMessage({ channel: args['channel'], text: 'Hola!' });
@@ -29,7 +31,7 @@ function enviarEventoShortcut(payload: any): any {
 
 function enviarEventoSubmit(payload: View): Promise<any> {
 
-    console.log(payload);
+    connection.getRepository(Event);
 
     return (Promise.resolve({"response_action": "errors", "errors": {
         "fecha": "You may not select a due date in the past"
