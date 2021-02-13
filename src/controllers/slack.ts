@@ -31,7 +31,7 @@ function enviarEventoShortcut(payload: any): any {
 
 function enviarEventoSubmit(payload: View): Promise<any> {
 
-    connection.getRepository(Event).findOne().then(e => console.log(e));
+    //connection.getRepository(Event).findOne().then(e => console.log(e));
 
     return (Promise.resolve({"response_action": "errors", "errors": {
         "fecha": "You may not select a due date in the past"
