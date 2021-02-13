@@ -4,6 +4,7 @@ import { viewBienvenida, viewEnviarEvento } from '../resources/views';
 import { ActionHandler, Respond } from '@slack/interactive-messages';
 import { View } from '@slack/web-api';
 import { connection } from '../database/eventsDB';
+import {Repository} from 'typeorm';
 
 function mencion(args: any) {
     service.getWebClient().chat.postMessage({ channel: args['channel'], text: 'Hola!' });
@@ -33,11 +34,14 @@ function enviarEventoSubmit(payload: View): Promise<any> {
 
     console.log("Conectando, " + connection.isConnected);
     console.log(connection.entityMetadatas);
-    connection.getRepository(Event).findOne(1).then(e => console.log(e)).catch((err) => console.error(err));
+    const repo: Repository<Event> = connection.getRepository(Event);
+    console.log("1");
+    repo.findOne(1).then(e => console.log(e)).catch((err) => console.error(err));
+    console.log("2");
 
     return (Promise.resolve({
         "response_action": "errors", "errors": {
-            "fecha": "You may not select a due date in the past"
+            "fecha": "La fecha no puede estar en el pasado"
         }
     }));
 }
