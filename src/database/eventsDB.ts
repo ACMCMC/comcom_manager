@@ -7,6 +7,6 @@ createConnection({
     url: process.env.DATABASE_URL || '',
     ssl: { rejectUnauthorized: false },
     logging: "all"
-}).then((con) => connection = con).catch((err) => console.error(err));
+}).then((con) => {console.log("conectado a la BD"); connection = con;}).catch((err) => console.error(err));
 
 export { connection };
