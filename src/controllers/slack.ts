@@ -16,7 +16,7 @@ function bienvenida(args: any) {
 
 function enviarEvento(payload: any, respond: Respond) {
     console.log(payload);
-    respond({ text: 'Hola!' });
+    respond({ text: 'Hola!', response_type: 'ephemeral' });
 }
 
 export { mencion, enviarEvento, hablarConBot, bienvenida };
