@@ -15,11 +15,11 @@ function bienvenida(args: any) {
 }
 
 function enviarEvento(payload: any, respond: Respond): any {
-    //service.getWebClient().views.open({ trigger_id: payload['trigger_id'], view: viewEnviarEvento });
-    respond({
+    service.getWebClient().views.open({ trigger_id: payload['trigger_id'], view: viewEnviarEvento });
+    /*respond({
         text: "Thanks for your request, we'll process it and get back to you.",
         response_type: "ephemeral"
-    }).catch((err) => console.error(err)).then((result) => console.log(result));
+    }).catch((err) => console.error(err)).then((result) => console.log(result));*/
 }
 
 export { mencion, enviarEvento, hablarConBot, bienvenida };
