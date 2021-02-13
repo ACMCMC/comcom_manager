@@ -119,7 +119,7 @@ const viewEnviarEvento: View = {
 			}
 		},
         {
-			"type": "actions",
+			"type": "input",
 			"elements": [
 				{
 					"type": "conversations_select",
@@ -128,7 +128,9 @@ const viewEnviarEvento: View = {
 						"text": "Select private conversation",
 						"emoji": true
 					},
-					"action_id": "seleccionar-canal-contacto"
+					"action_id": "seleccionar-canal-contacto",
+                    "default_to_current_conversation": true,
+                    "response_url_enabled": true
 				}
 			]
 		}
