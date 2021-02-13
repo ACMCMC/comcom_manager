@@ -120,19 +120,19 @@ const viewEnviarEvento: View = {
 		},
         {
 			"type": "input",
-			"elements": [
+			"element": 
 				{
 					"type": "conversations_select",
 					"placeholder": {
 						"type": "plain_text",
-						"text": "Select private conversation",
+						"text": "Seleccionar conversación",
 						"emoji": true
 					},
 					"action_id": "seleccionar-canal-contacto",
                     "default_to_current_conversation": true,
                     "response_url_enabled": true
 				}
-			]
+			
 		}
 	]
 };
