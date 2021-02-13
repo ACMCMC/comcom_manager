@@ -1,7 +1,7 @@
 import { WebClient, LogLevel } from '@slack/web-api';
 import { createEventAdapter, SlackEventAdapter } from '@slack/events-api';
 import { createMessageAdapter, SlackMessageAdapter } from '@slack/interactive-messages';
-import { mencion, enviarEvento, hablarConBot } from '../controllers/slack';
+import { mencion, enviarEvento, bienvenida } from '../controllers/slack';
 
 const slackSigningSecret = process.env.SLACK_SIGNING_SECRET || '';
 
@@ -34,7 +34,7 @@ class slackService {
 
     private setupListeners() {
         this.slackEvents.addListener('app_mention', mencion);
-        this.slackEvents.addListener('message.app_home', hablarConBot);
+        this.slackEvents.addListener('app_home_opened', bienvenida);
 
         this.slackInteractions.shortcut('enviar_evento', enviarEvento);
     }
