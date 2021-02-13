@@ -74,20 +74,46 @@ const viewEnviarEvento: View = {
 	},
 	"blocks": [
 		{
-			"type": "section",
-			"text": {
-				"type": "mrkdwn",
-				"text": "¡Hola! Soy el *Gestor de ComCom*. Habla conmigo para pedirle al Comité de Comunicación que difundan tus eventos. Tienes dos formas de hacerlo:"
+			"type": "input",
+			"element": {
+				"type": "plain_text_input",
+				"action_id": "plain_text_input-action"
+			},
+			"label": {
+				"type": "plain_text",
+				"text": "Nombre del evento",
+				"emoji": true
 			}
 		},
 		{
-			"type": "divider"
+			"type": "input",
+			"element": {
+				"type": "datepicker",
+				"initial_date": "1990-04-28",
+				"placeholder": {
+					"type": "plain_text",
+					"text": "Select a date",
+					"emoji": true
+				},
+				"action_id": "datepicker-action"
+			},
+			"label": {
+				"type": "plain_text",
+				"text": "Fecha",
+				"emoji": true
+			}
 		},
 		{
-			"type": "section",
-			"text": {
-				"type": "mrkdwn",
-				"text": "This is a mrkdwn section block :ghost: *this is bold*, and ~this is crossed out~, and <https://google.com|this is a link>"
+			"type": "input",
+			"element": {
+				"type": "plain_text_input",
+				"multiline": true,
+				"action_id": "plain_text_input-action"
+			},
+			"label": {
+				"type": "plain_text",
+				"text": "Descripción adicional",
+				"emoji": true
 			}
 		}
 	]
