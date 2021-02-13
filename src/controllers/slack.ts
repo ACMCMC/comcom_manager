@@ -15,10 +15,9 @@ function bienvenida(args: any) {
 }
 
 function enviarEvento(payload: any, respond: Respond): any {
-    console.log(payload);
     respond({ text: 'Hola!', response_type: 'ephemeral' });
     service.getWebClient().views.open({ trigger_id: payload['trigger_id'], view: viewEnviarEvento })
-    return 'Prueba';
+    console.log(payload);
 }
 
 export { mencion, enviarEvento, hablarConBot, bienvenida };
