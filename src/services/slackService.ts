@@ -1,7 +1,7 @@
 import { WebClient, LogLevel } from '@slack/web-api';
 import { createEventAdapter, SlackEventAdapter } from '@slack/events-api';
 import { createMessageAdapter, SlackMessageAdapter } from '@slack/interactive-messages';
-import { mencion, enviarEvento, enviarEventoShortcut, bienvenida, enviarModal } from '../controllers/slack';
+import { mencion, enviarEvento, enviarEventoShortcut, enviarEventoSubmit, bienvenida, enviarModal } from '../controllers/slack';
 
 const slackSigningSecret = process.env.SLACK_SIGNING_SECRET || '';
 
@@ -37,8 +37,8 @@ class slackService {
         this.slackEvents.addListener('app_home_opened', bienvenida);
 
         this.slackInteractions.action({ type: 'button', actionId: 'enviar_evento' }, enviarEvento);
-        this.slackInteractions.action({ actionId: 'enviar_evento' }, enviarEvento);
         this.slackInteractions.shortcut( {callbackId: 'enviar_evento'}, enviarEventoShortcut );
+        this.slackInteractions.viewSubmission( {callbackId: 'enviar_evento'}, enviarEventoSubmit );
     }
 
 }

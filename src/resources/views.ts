@@ -21,7 +21,7 @@ const viewBienvenida: View = {
 			"type": "section",
 			"text": {
 				"type": "mrkdwn",
-				"text": "*2️⃣ Hablar directamente conmigo*. Abajo encontrarás un botón que te permite realizar la misma acción que con `/enviar_evento`."
+				"text": "*2️⃣ Hacer click en el siguiente botón*:"
 			}
 		},
 		{

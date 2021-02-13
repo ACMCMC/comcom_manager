@@ -26,8 +26,12 @@ function enviarEventoShortcut(payload: any): any {
     service.getWebClient().views.open({ trigger_id: payload['trigger_id'], view: viewEnviarEvento });
 }
 
+function enviarEventoSubmit(payload: any): any {
+    console.log("dassa");
+}
+
 function enviarModal(payload: any, respond: Respond): any {
     console.log(payload);
 }
 
-export { mencion, enviarEvento, hablarConBot, bienvenida, enviarModal, enviarEventoShortcut };
+export { mencion, enviarEvento, hablarConBot, bienvenida, enviarModal, enviarEventoShortcut, enviarEventoSubmit };
