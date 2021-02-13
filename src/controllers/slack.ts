@@ -30,8 +30,4 @@ function enviarEventoSubmit(payload: any): any {
     console.log("dassa");
 }
 
-function enviarModal(payload: any, respond: Respond): any {
-    console.log(payload);
-}
-
-export { mencion, enviarEvento, hablarConBot, bienvenida, enviarModal, enviarEventoShortcut, enviarEventoSubmit };
+export { mencion, enviarEvento, hablarConBot, bienvenida, enviarEventoShortcut, enviarEventoSubmit };

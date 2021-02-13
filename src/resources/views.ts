@@ -57,6 +57,7 @@ const viewBienvenida: View = {
 
 const viewEnviarEvento: View = {
 	"type": "modal",
+    "callback_id": "enviar_evento",
 	"title": {
 		"type": "plain_text",
 		"text": "Enviar un evento",

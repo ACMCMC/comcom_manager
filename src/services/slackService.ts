@@ -1,7 +1,7 @@
 import { WebClient, LogLevel } from '@slack/web-api';
 import { createEventAdapter, SlackEventAdapter } from '@slack/events-api';
 import { createMessageAdapter, SlackMessageAdapter } from '@slack/interactive-messages';
-import { mencion, enviarEvento, enviarEventoShortcut, enviarEventoSubmit, bienvenida, enviarModal } from '../controllers/slack';
+import { mencion, enviarEvento, enviarEventoShortcut, enviarEventoSubmit, bienvenida } from '../controllers/slack';
 
 const slackSigningSecret = process.env.SLACK_SIGNING_SECRET || '';
 
