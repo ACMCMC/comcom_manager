@@ -23,7 +23,7 @@ function enviarEvento(payload: any, respond: Respond): any {
 }
 
 function enviarModal(payload: any, respond: Respond): any {
-    console.log("daasdsa");
+    console.log(payload);
 }
 
 export { mencion, enviarEvento, hablarConBot, bienvenida, enviarModal };
