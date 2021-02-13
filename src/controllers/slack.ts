@@ -22,8 +22,12 @@ function enviarEvento(payload: any, respond: Respond): any {
     }).catch((err) => console.error(err)).then((result) => console.log(result));*/
 }
 
+function enviarEventoShortcut(payload: any): any {
+    service.getWebClient().views.open({ trigger_id: payload['trigger_id'], view: viewEnviarEvento });
+}
+
 function enviarModal(payload: any, respond: Respond): any {
     console.log(payload);
 }
 
-export { mencion, enviarEvento, hablarConBot, bienvenida, enviarModal };
+export { mencion, enviarEvento, hablarConBot, bienvenida, enviarModal, enviarEventoShortcut };
