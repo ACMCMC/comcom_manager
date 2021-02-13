@@ -1,7 +1,7 @@
 import {Entity, PrimaryGeneratedColumn, Column} from "typeorm";
 
 @Entity('evento')
-export class Evento {
+export class Event {
 
     @Column()
     name: string = '';
