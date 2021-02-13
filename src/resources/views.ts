@@ -102,7 +102,8 @@ const viewEnviarEvento: View = {
                 "type": "plain_text",
                 "text": "Fecha",
                 "emoji": true
-            }
+            }, 
+            "block_id": "fecha"
         },
         {
             "type": "input",

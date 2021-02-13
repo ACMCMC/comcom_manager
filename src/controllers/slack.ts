@@ -31,7 +31,11 @@ function enviarEventoSubmit(payload: View): Promise<any> {
 
     console.log(payload);
 
-    return Promise.resolve({
+    return (Promise.resolve({"response_action": "errors", "errors": {
+        "ticket-due-date": "You may not select a due date in the past"
+      }}));
+
+    /*return Promise.resolve({
         "response_action": "update",
         "view": {
             "type": "modal",
@@ -49,7 +53,7 @@ function enviarEventoSubmit(payload: View): Promise<any> {
               }
             ]
           }
-      });
+      });*/
 }
 
 export { mencion, enviarEvento, hablarConBot, bienvenida, enviarEventoShortcut, enviarEventoSubmit };
