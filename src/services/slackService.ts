@@ -36,7 +36,7 @@ class slackService {
         this.slackEvents.addListener('app_mention', mencion);
         this.slackEvents.addListener('app_home_opened', bienvenida);
 
-        this.slackInteractions.shortcut('enviar_evento', enviarEvento);
+        this.slackInteractions.action('enviar_evento', enviarEvento);
     }
 
 }
