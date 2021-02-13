@@ -78,7 +78,7 @@ const viewEnviarEvento: View = {
 			"type": "input",
 			"element": {
 				"type": "plain_text_input",
-				"action_id": "plain_text_input-action"
+				"action_id": "nombre-action"
 			},
 			"label": {
 				"type": "plain_text",
@@ -96,7 +96,7 @@ const viewEnviarEvento: View = {
 					"text": "Select a date",
 					"emoji": true
 				},
-				"action_id": "datepicker-action"
+				"action_id": "fecha-action"
 			},
 			"label": {
 				"type": "plain_text",
@@ -110,7 +110,7 @@ const viewEnviarEvento: View = {
 			"element": {
 				"type": "plain_text_input",
 				"multiline": true,
-				"action_id": "plain_text_input-action"
+				"action_id": "descripcion-action"
 			},
 			"label": {
 				"type": "plain_text",

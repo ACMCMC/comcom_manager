@@ -1,6 +1,7 @@
 import { service } from '../services/slackService';
 import { viewBienvenida, viewEnviarEvento } from '../resources/views';
 import { ActionHandler, Respond } from '@slack/interactive-messages';
+import { View } from '@slack/web-api';
 
 function mencion(args: any) {
     service.getWebClient().chat.postMessage({ channel: args['channel'], text: 'Hola!' });
@@ -26,8 +27,14 @@ function enviarEventoShortcut(payload: any): any {
     service.getWebClient().views.open({ trigger_id: payload['trigger_id'], view: viewEnviarEvento });
 }
 
-function enviarEventoSubmit(payload: any): any {
+function enviarEventoSubmit(payload: View): any {
     console.log("dassa");
+    return Promise.resolve({
+        "response_action": "errors",
+        "errors": {
+          "fecha-action": "You may not select a due date in the past"
+        }
+      });
 }
 
 export { mencion, enviarEvento, hablarConBot, bienvenida, enviarEventoShortcut, enviarEventoSubmit };
