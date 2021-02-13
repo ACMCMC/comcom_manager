@@ -105,6 +105,7 @@ const viewEnviarEvento: View = {
 		},
 		{
 			"type": "input",
+            "optional": true,
 			"element": {
 				"type": "plain_text_input",
 				"multiline": true,
