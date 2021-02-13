@@ -1,4 +1,4 @@
-import { Event } from '../entity/Event';
+import { Evento } from '../entity/Event';
 import { service } from '../services/slackService';
 import { viewBienvenida, viewEnviarEvento } from '../resources/views';
 import { ActionHandler, Respond } from '@slack/interactive-messages';
@@ -34,7 +34,7 @@ function enviarEventoSubmit(payload: View): Promise<any> {
 
     console.log("Conectando, " + connection.isConnected);
     console.log(connection.entityMetadatas);
-    const repo: Repository<Event> = connection.getRepository(Event);
+    const repo: Repository<Evento> = connection.getRepository(Evento);
     console.log("1");
     repo.findOne(1).then(e => console.log(e)).catch((err) => console.error(err));
     console.log("2");
