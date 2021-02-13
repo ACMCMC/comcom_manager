@@ -117,6 +117,20 @@ const viewEnviarEvento: View = {
 				"text": "Descripción adicional",
 				"emoji": true
 			}
+		},
+        {
+			"type": "actions",
+			"elements": [
+				{
+					"type": "conversations_select",
+					"placeholder": {
+						"type": "plain_text",
+						"text": "Select private conversation",
+						"emoji": true
+					},
+					"action_id": "seleccionar-canal-contacto"
+				}
+			]
 		}
 	]
 };
