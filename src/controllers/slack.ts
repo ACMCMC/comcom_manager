@@ -1,5 +1,6 @@
 import {service} from '../services/slackService';
 import { vistasBienvenida } from '../resources/views';
+import { ActionHandler, Respond } from '@slack/interactive-messages';
 
 function mencion(args: any) {
     service.getWebClient().chat.postMessage({channel: args['channel'], text: 'Hola!'});
@@ -13,8 +14,9 @@ function bienvenida(args: any) {
     service.getWebClient().views.publish({view: vistasBienvenida, user_id: args['user']});
 }
 
-function enviarEvento(args: any) {
-    console.log('Enviar evento');
+function enviarEvento(payload: any, respond: Respond) {
+    console.log(payload);
+    respond({ text: 'Hola!' });
 }
 
 export { mencion, enviarEvento, hablarConBot, bienvenida };
