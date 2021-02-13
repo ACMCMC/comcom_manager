@@ -128,7 +128,7 @@ const viewEnviarEvento: View = {
                     "text": "Seleccionar...",
                     "emoji": true
                 },
-                "action_id": "seleccionar-canal-contacto",
+                "action_id": "seleccionar_canal_contacto",
                 "default_to_current_conversation": true,
                 "response_url_enabled": true
             },
