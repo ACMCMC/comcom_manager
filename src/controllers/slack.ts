@@ -28,13 +28,12 @@ function enviarEventoShortcut(payload: any): any {
 }
 
 function enviarEventoSubmit(payload: View): any {
-    console.log("dassa");
-    return Promise.resolve({
+    return {
         "response_action": "errors",
         "errors": {
           "fecha-action": "You may not select a due date in the past"
         }
-      });
+      };
 }
 
 export { mencion, enviarEvento, hablarConBot, bienvenida, enviarEventoShortcut, enviarEventoSubmit };
