@@ -14,9 +14,10 @@ function bienvenida(args: any) {
     service.getWebClient().views.publish({view: vistasBienvenida, user_id: args['user']});
 }
 
-function enviarEvento(payload: any, respond: Respond) {
+function enviarEvento(payload: any, respond: Respond): any {
     console.log(payload);
     respond({ text: 'Hola!', response_type: 'ephemeral' });
+    return 'Prueba';
 }
 
 export { mencion, enviarEvento, hablarConBot, bienvenida };
