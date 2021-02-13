@@ -32,10 +32,23 @@ function enviarEventoSubmit(payload: View): Promise<any> {
     console.log(payload);
 
     return Promise.resolve({
-        "response_action": "errors",
-        "errors": {
-          "fecha-action": "You may not select a due date in the past"
-        }
+        "response_action": "update",
+        "view": {
+            "type": "modal",
+            "title": {
+              "type": "plain_text",
+              "text": "Updated view"
+            },
+            "blocks": [
+              {
+                "type": "section",
+                "text": {
+                  "type": "plain_text",
+                  "text": "I've changed and I'll never be the same. You must believe me."
+                }
+              }
+            ]
+          }
       });
 }
 
