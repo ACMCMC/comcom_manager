@@ -11,9 +11,9 @@ export class Event {
     date: Date = new Date();
     @Column()
     contact: string = '';
-    @CreateDateColumn()
+    @CreateDateColumn({name: 'timestampsubmitted'})
     timestampSubmitted: Date = new Date();
-    @Column()
+    @Column({name: 'usersubmitted'})
     userSubmitted: string = '';
     @Column()
     status: string = '';
