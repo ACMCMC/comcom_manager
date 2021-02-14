@@ -1,4 +1,4 @@
-import { Event } from '../entity/Event';
+import { Event, EventStatus } from '../entity/Event';
 import { service } from '../services/slackService';
 import { viewBienvenida, viewEnviarEvento } from '../resources/views';
 import { ActionHandler, Respond } from '@slack/interactive-messages';
@@ -51,6 +51,7 @@ function enviarEventoSubmit(payload: any): Promise<any> {
     evento.contact = valoresForm['contact']['contact-action']['selected_conversation'];
     evento.description = valoresForm['description']['description-action']['value'];
     evento.userSubmitted = payload['user'];
+    evento.status = EventStatus.PENDIENTE_DE_APROBAR;
 
     const repo: Repository<Event> = connection.getRepository(Event);
     repo.save([evento]);
