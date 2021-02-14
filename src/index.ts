@@ -1,7 +1,7 @@
 import express, { Application } from 'express';
 import bodyParser from 'body-parser';
 import { gestionRouter } from './routers/gestion';
-import {service as slackService} from './services/slackService';
+import { service as slackService } from './services/slackService';
 import dotEnv from 'dotenv';
 
 const port: number = Number(process.env.PORT) || 8080;

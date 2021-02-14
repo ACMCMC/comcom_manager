@@ -2,9 +2,10 @@ import { Event, EventStatus } from '../entity/Event';
 import { service } from '../services/slackService';
 import { viewBienvenida, viewEnviarEvento } from '../resources/views';
 import { ActionHandler, Respond } from '@slack/interactive-messages';
-import { View, SectionBlock, PlainTextElement, ChatMeMessageArguments } from '@slack/web-api';
+import { View, SectionBlock, PlainTextElement, ChatMeMessageArguments, ChatPostMessageArguments } from '@slack/web-api';
 import { connection } from '../database/eventsDB';
 import { Repository } from 'typeorm';
+import { mensajeSolicitudPublicacion } from '../resources/messageBlocks';
 
 function mencion(args: any) {
     service.getWebClient().chat.postMessage({ channel: args['channel'], text: 'Hola!' });
@@ -62,8 +63,8 @@ function enviarEventoSubmit(payload: any): Promise<any> {
 }
 
 async function enviarMensajeSolicitudPublicacion(evento: Event) {
-    const msg: ChatMeMessageArguments = {channel: evento.contact, text: "Mensaje de prueba"};
-    service.getWebClient().chat.postMessage(msg);
+    const msg: ChatPostMessageArguments = { channel: evento.contact, text: "Mensaje de prueba", blocks: mensajeSolicitudPublicacion };
+    service.getWebClient().chat.postMessage(msg).then((res) => console.info("Publicado el mensaje correctamente")).catch((err) => console.error("Error para publicar el mensaje"));
 }
 
 export { mencion, enviarEvento, hablarConBot, bienvenida, enviarEventoShortcut, enviarEventoSubmit };

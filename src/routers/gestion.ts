@@ -5,4 +5,4 @@ const router = express.Router();
 
 router.get('/', () => gestion);
 
-export {router as gestionRouter};
+export { router as gestionRouter };

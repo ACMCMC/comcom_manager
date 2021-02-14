@@ -1,4 +1,4 @@
-import {Entity, PrimaryGeneratedColumn, CreateDateColumn, Column} from "typeorm";
+import { Entity, PrimaryGeneratedColumn, CreateDateColumn, Column } from "typeorm";
 
 export enum EventStatus {
     PENDIENTE_DE_APROBAR = "pending",
@@ -17,11 +17,11 @@ export class Event {
     date: Date = new Date();
     @Column()
     contact: string = '';
-    @CreateDateColumn({name: 'timestampsubmitted'})
+    @CreateDateColumn({ name: 'timestampsubmitted' })
     timestampSubmitted: Date = new Date();
-    @Column({name: 'usersubmitted'})
+    @Column({ name: 'usersubmitted' })
     userSubmitted: string = '';
-    @Column({type: 'enum', enum: EventStatus})
+    @Column({ type: 'enum', enum: EventStatus })
     status: string = '';
 
     @PrimaryGeneratedColumn()
