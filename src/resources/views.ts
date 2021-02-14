@@ -144,4 +144,83 @@ const viewEnviarEvento: View = {
     ]
 };
 
+const vista_info_publicacion: View = {
+    "type":"modal",
+	"blocks": [
+		{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": "¡Hola, canal! Soy el *Gestor de ComCom*. \n X me ha pedido publicar el evento _dasd_. Genial!"
+			}
+		},
+		{
+			"type": "header",
+			"text": {
+				"type": "plain_text",
+				"text": "Proceso de publicación de evento",
+				"emoji": true
+			}
+		},
+		{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": "1️⃣ ComCom revisará la solicitud de publicación y emitirá una decisión."
+			}
+		},
+		{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": "✅ En caso de que la difusión sea viable, lo comunicaré al momento, en este canal."
+			}
+		},
+		{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": "❎ En caso de que ComCom no pueda realizar la difusión, también informaré de la decisión."
+			}
+		},
+		{
+			"type": "divider"
+		},
+		{
+			"type": "actions",
+			"elements": [
+				{
+					"type": "button",
+					"text": {
+						"type": "plain_text",
+						"text": "Farmhouse",
+						"emoji": true
+					},
+					"value": "click_me_123"
+				},
+				{
+					"type": "button",
+					"text": {
+						"type": "plain_text",
+						"text": "Kin Khao",
+						"emoji": true
+					},
+					"value": "click_me_123",
+					"url": "https://google.com"
+				},
+				{
+					"type": "button",
+					"text": {
+						"type": "plain_text",
+						"text": "Ler Ros",
+						"emoji": true
+					},
+					"value": "click_me_123",
+					"url": "https://google.com"
+				}
+			]
+		}
+	]
+};
+
 export { viewBienvenida, viewEnviarEvento };
