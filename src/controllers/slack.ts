@@ -2,7 +2,7 @@ import { Event } from '../entity/Event';
 import { service } from '../services/slackService';
 import { viewBienvenida, viewEnviarEvento } from '../resources/views';
 import { ActionHandler, Respond } from '@slack/interactive-messages';
-import { View } from '@slack/web-api';
+import { View, SectionBlock, PlainTextElement } from '@slack/web-api';
 import { connection } from '../database/eventsDB';
 import {Repository} from 'typeorm';
 
@@ -15,6 +15,8 @@ function hablarConBot(args: any) {
 }
 
 function bienvenida(args: any) {
+    var viewModificada = viewBienvenida;
+    (<SectionBlock> viewModificada.blocks.find(view => view.type==='section')).text =  <PlainTextElement> ( <unknown> ('¡Hola <@' + args['user'] + '>! Soy el *Gestor de ComCom*. Habla conmigo para pedirle al Comité de Comunicación que difundan tus eventos. Tienes dos formas de hacerlo:'));
     service.getWebClient().views.publish({ view: viewBienvenida, user_id: args['user'] });
 }
 
