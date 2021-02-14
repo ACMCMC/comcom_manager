@@ -38,18 +38,19 @@ function enviarEventoSubmit(payload: any): Promise<any> {
 
     const evento: Event = new Event();
 
-    evento.name = valoresForm['name']['name-action']['value'];
-    evento.date = new Date(valoresForm['date']['date-action']['selected_date']);
-    evento.contact = valoresForm['contact']['contact-action']['selected_conversation'];
-    evento.description = valoresForm['description']['description-action']['value'];
-
-    if (evento.date < new Date()) {
+    if (evento.date < new Date()) { // La fecha en la que se pide el evento es menor que la actual
         return (Promise.resolve({
             "response_action": "errors", "errors": {
                 "date": "La fecha no puede estar en el pasado"
             }
         }));
     }
+
+    evento.name = valoresForm['name']['name-action']['value'];
+    evento.date = new Date(valoresForm['date']['date-action']['selected_date']);
+    evento.contact = valoresForm['contact']['contact-action']['selected_conversation'];
+    evento.description = valoresForm['description']['description-action']['value'];
+    evento.userSubmitted = payload['user'];
 
     const repo: Repository<Event> = connection.getRepository(Event);
     repo.save([evento]);
