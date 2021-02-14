@@ -7,8 +7,6 @@ createConnection({
     type: 'postgres',
     url: process.env.DATABASE_URL || '',
     ssl: { rejectUnauthorized: false },
-    logging: false,
-    logger: "simple-console",
     entities: [ Event ]
 }).then((con) => {console.log("Conectado a la BD"); connection = con;}).catch((err) => console.error(err));
 
