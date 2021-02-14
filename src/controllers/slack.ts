@@ -56,7 +56,7 @@ function enviarEventoSubmit(payload: any): Promise<any> {
     const repo: Repository<Event> = connection.getRepository(Event);
     repo.save([evento]).then(evento => console.info('Insertado el evento ' + evento[0].id + ', con nombre ' + evento[0].name)).catch((err) => console.error('Error insertando el evento. Error: ', err));
 
-    enviarMensajeSolicitudPublicacion(payload);
+    enviarMensajeSolicitudPublicacion(payload['response_urls']['response_url']);
 
     return (Promise.resolve({
     }));
