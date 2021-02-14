@@ -78,7 +78,7 @@ const viewEnviarEvento: View = {
             "type": "input",
             "element": {
                 "type": "plain_text_input",
-                "action_id": "nombre-action"
+                "action_id": "name-action"
             },
             "label": {
                 "type": "plain_text",
@@ -97,7 +97,7 @@ const viewEnviarEvento: View = {
                     "text": "Select a date",
                     "emoji": true
                 },
-                "action_id": "fecha-action"
+                "action_id": "date-action"
             },
             "label": {
                 "type": "plain_text",
@@ -112,7 +112,7 @@ const viewEnviarEvento: View = {
             "element": {
                 "type": "plain_text_input",
                 "multiline": true,
-                "action_id": "descripcion-action"
+                "action_id": "description-action"
             },
             "label": {
                 "type": "plain_text",
@@ -131,7 +131,7 @@ const viewEnviarEvento: View = {
                     "text": "Seleccionar...",
                     "emoji": true
                 },
-                "action_id": "seleccionar_canal_contacto",
+                "action_id": "contact-action",
                 "default_to_current_conversation": true,
                 "response_url_enabled": true
             },

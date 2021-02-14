@@ -4,7 +4,7 @@ import { viewBienvenida, viewEnviarEvento } from '../resources/views';
 import { ActionHandler, Respond } from '@slack/interactive-messages';
 import { View, SectionBlock, PlainTextElement } from '@slack/web-api';
 import { connection } from '../database/eventsDB';
-import {Repository} from 'typeorm';
+import { Repository } from 'typeorm';
 
 function mencion(args: any) {
     service.getWebClient().chat.postMessage({ channel: args['channel'], text: 'Hola!' });
@@ -16,7 +16,7 @@ function hablarConBot(args: any) {
 
 function bienvenida(args: any) {
     var viewModificada = Object.assign({}, viewBienvenida); // Hacemos una copia de la View original, y la personalizamos para el usuario
-    (<SectionBlock> viewModificada.blocks.find(view => view.type==='section')).text =  <PlainTextElement> ( <unknown> ('¡Hola <@' + args['user'] + '>! Soy el *Gestor de ComCom*. Habla conmigo para pedirle al Comité de Comunicación que difundan tus eventos. Tienes dos formas de hacerlo:'));
+    (<SectionBlock>viewModificada.blocks.find(view => view.type === 'section')).text = <PlainTextElement>(<unknown>('¡Hola <@' + args['user'] + '>! Soy el *Gestor de ComCom*. Habla conmigo para pedirle al Comité de Comunicación que difundan tus eventos. Tienes dos formas de hacerlo:'));
     service.getWebClient().views.publish({ view: viewBienvenida, user_id: args['user'] });
 }
 
@@ -34,18 +34,27 @@ function enviarEventoShortcut(payload: any): any {
 
 function enviarEventoSubmit(payload: any): Promise<any> {
 
-    console.log(payload['view']['state']['values']);
+    const valoresForm = payload['view']['state']['values'];
 
     const evento: Event = new Event();
 
+    evento.name = valoresForm['name']['name-action']['value'];
+    evento.date = new Date(valoresForm['date']['date-action']['selected_date']);
+    evento.contact = valoresForm['contact']['contact-action']['selected_conversation'];
+    evento.description = valoresForm['description']['description-action']['value'];
+
+    if (evento.date < new Date()) {
+        return (Promise.resolve({
+            "response_action": "errors", "errors": {
+                "date": "La fecha no puede estar en el pasado"
+            }
+        }));
+    }
+
     const repo: Repository<Event> = connection.getRepository(Event);
-    repo.save([ evento ]);
-    repo.findOne(1).then(e => console.log(e)).catch((err) => console.error(err));
+    repo.save([evento]);
 
     return (Promise.resolve({
-        "response_action": "errors", "errors": {
-            "date": "La fecha no puede estar en el pasado"
-        }
     }));
 }
 
