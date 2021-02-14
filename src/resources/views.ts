@@ -84,7 +84,8 @@ const viewEnviarEvento: View = {
                 "type": "plain_text",
                 "text": "Nombre del evento",
                 "emoji": true
-            }
+            }, 
+            "block_id": "name"
         },
         {
             "type": "input",
@@ -103,7 +104,7 @@ const viewEnviarEvento: View = {
                 "text": "Fecha",
                 "emoji": true
             }, 
-            "block_id": "fecha"
+            "block_id": "date"
         },
         {
             "type": "input",
@@ -117,7 +118,8 @@ const viewEnviarEvento: View = {
                 "type": "plain_text",
                 "text": "Descripción adicional",
                 "emoji": true
-            }
+            }, 
+            "block_id": "description"
         },
         {
             "type": "input",
@@ -137,72 +139,8 @@ const viewEnviarEvento: View = {
                 "type": "plain_text",
                 "text": "Canal de contacto",
                 "emoji": true
-            }
-        }
-    ]
-};
-
-const viewEnviarEventoMenos7Dias: View = {
-    "type": "modal",
-    "title": {
-        "type": "plain_text",
-        "text": "Enviar un evento",
-        "emoji": true
-    },
-    "submit": {
-        "type": "plain_text",
-        "text": "Enviar",
-        "emoji": true
-    },
-    "close": {
-        "type": "plain_text",
-        "text": "Cancelar",
-        "emoji": true
-    },
-    "blocks": [
-        {
-            "type": "input",
-            "element": {
-                "type": "plain_text_input",
-                "action_id": "plain_text_input-action"
-            },
-            "label": {
-                "type": "plain_text",
-                "text": "Nombre del eventoADADSADAS",
-                "emoji": true
-            }
-        },
-        {
-            "type": "input",
-            "element": {
-                "type": "datepicker",
-                "initial_date": "1990-04-28",
-                "placeholder": {
-                    "type": "plain_text",
-                    "text": "Select a date",
-                    "emoji": true
-                },
-                "action_id": "datepicker-action"
-            },
-            "label": {
-                "type": "plain_text",
-                "text": "Fecha",
-                "emoji": true
-            }
-        },
-        {
-            "type": "input",
-            "optional": true,
-            "element": {
-                "type": "plain_text_input",
-                "multiline": true,
-                "action_id": "plain_text_input-action"
-            },
-            "label": {
-                "type": "plain_text",
-                "text": "Descripción adicional",
-                "emoji": true
-            }
+            }, 
+            "block_id": "contact"
         }
     ]
 };

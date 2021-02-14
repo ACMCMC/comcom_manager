@@ -44,7 +44,7 @@ function enviarEventoSubmit(payload: any): Promise<any> {
 
     return (Promise.resolve({
         "response_action": "errors", "errors": {
-            "fecha": "La fecha no puede estar en el pasado"
+            "date": "La fecha no puede estar en el pasado"
         }
     }));
 }
