@@ -35,11 +35,8 @@ function enviarEventoShortcut(payload: any): any {
 function enviarEventoSubmit(payload: View): Promise<any> {
 
     console.log("Conectando, " + connection.isConnected);
-    console.log(connection.entityMetadatas);
     const repo: Repository<Event> = connection.getRepository(Event);
-    console.log("1");
     repo.findOne(1).then(e => console.log(e)).catch((err) => console.error(err));
-    console.log("2");
 
     return (Promise.resolve({
         "response_action": "errors", "errors": {
