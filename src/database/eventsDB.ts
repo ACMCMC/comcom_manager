@@ -8,6 +8,6 @@ createConnection({
     ssl: { rejectUnauthorized: false },
     logging: "all",
     logger: "simple-console"
-}).then((con) => {console.log("conectado a la BD"); connection = con;}).catch((err) => console.error(err));
+}).then((con) => {console.log("Conectado a la BD"); connection = con;}).catch((err) => console.error(err));
 
 export { connection };
