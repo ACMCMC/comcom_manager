@@ -2,7 +2,7 @@ import { Event, EventStatus } from '../entity/Event';
 import { service } from '../services/slackService';
 import { viewBienvenida, viewEnviarEvento } from '../resources/views';
 import { ActionHandler, Respond } from '@slack/interactive-messages';
-import { View, SectionBlock, PlainTextElement } from '@slack/web-api';
+import { View, SectionBlock, PlainTextElement, ChatMeMessageArguments } from '@slack/web-api';
 import { connection } from '../database/eventsDB';
 import { Repository } from 'typeorm';
 
@@ -55,14 +55,15 @@ function enviarEventoSubmit(payload: any): Promise<any> {
     const repo: Repository<Event> = connection.getRepository(Event);
     repo.save([evento]).then(evento => console.info('Insertado el evento ' + evento[0].id + ', con nombre ' + evento[0].name)).catch((err) => console.error('Error insertando el evento. Error: ', err));
 
-    enviarMensajeSolicitudPublicacion(payload['response_urls']);
+    enviarMensajeSolicitudPublicacion(evento);
 
     return (Promise.resolve({
     }));
 }
 
-async function enviarMensajeSolicitudPublicacion(url: any) {
-    console.log(url);
+async function enviarMensajeSolicitudPublicacion(evento: Event) {
+    const msg: ChatMeMessageArguments = {channel: evento.contact, text: "Mensaje de prueba"};
+    service.getWebClient().chat.postMessage(msg);
 }
 
 export { mencion, enviarEvento, hablarConBot, bienvenida, enviarEventoShortcut, enviarEventoSubmit };
