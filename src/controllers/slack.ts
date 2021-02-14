@@ -38,6 +38,11 @@ function enviarEventoSubmit(payload: any): Promise<any> {
 
     const evento: Event = new Event();
     evento.date = new Date(valoresForm['date']['date-action']['selected_date']);
+    evento.name = valoresForm['name']['name-action']['value'];
+    evento.contact = valoresForm['contact']['contact-action']['selected_conversation'];
+    evento.description = valoresForm['description']['description-action']['value'];
+    evento.userSubmitted = payload['user']['id'];
+    evento.status = EventStatus.PENDIENTE_DE_APROBAR;
 
     if (evento.date < new Date()) { // La fecha en la que se pide el evento es menor que la actual
         return (Promise.resolve({
@@ -47,16 +52,10 @@ function enviarEventoSubmit(payload: any): Promise<any> {
         }));
     }
 
-    evento.name = valoresForm['name']['name-action']['value'];
-    evento.contact = valoresForm['contact']['contact-action']['selected_conversation'];
-    evento.description = valoresForm['description']['description-action']['value'];
-    evento.userSubmitted = payload['user']['id'];
-    evento.status = EventStatus.PENDIENTE_DE_APROBAR;
-
     const repo: Repository<Event> = connection.getRepository(Event);
     repo.save([evento]).then(evento => console.info('Insertado el evento ' + evento[0].id + ', con nombre ' + evento[0].name)).catch((err) => console.error('Error insertando el evento. Error: ', err));
 
-    enviarMensajeSolicitudPublicacion(payload['response_urls']['response_url']);
+    enviarMensajeSolicitudPublicacion(payload['response_urls']);
 
     return (Promise.resolve({
     }));
