@@ -54,7 +54,7 @@ function enviarEventoSubmit(payload: any): Promise<any> {
     evento.status = EventStatus.PENDIENTE_DE_APROBAR;
 
     const repo: Repository<Event> = connection.getRepository(Event);
-    repo.save([evento]);
+    repo.save([evento]).then(evento => console.info('Insertado el evento ' + evento[0].id + ', con nombre ' + evento[0].name)).catch((err) => console.error('Error insertando el evento. Error: ', err));
 
     return (Promise.resolve({
     }));
