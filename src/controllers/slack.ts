@@ -15,7 +15,7 @@ function hablarConBot(args: any) {
 }
 
 function bienvenida(args: any) {
-    var viewModificada = viewBienvenida;
+    var viewModificada = Object.assign({}, viewBienvenida); // Hacemos una copia de la View original, y la personalizamos para el usuario
     (<SectionBlock> viewModificada.blocks.find(view => view.type==='section')).text =  <PlainTextElement> ( <unknown> ('¡Hola <@' + args['user'] + '>! Soy el *Gestor de ComCom*. Habla conmigo para pedirle al Comité de Comunicación que difundan tus eventos. Tienes dos formas de hacerlo:'));
     service.getWebClient().views.publish({ view: viewBienvenida, user_id: args['user'] });
 }
