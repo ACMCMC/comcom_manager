@@ -6,7 +6,7 @@ export enum EventStatus {
     DENEGADO = "denied"
 }
 
-@Entity('evento')
+@Entity('event')
 export class Event {
 
     @Column()
