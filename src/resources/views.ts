@@ -7,7 +7,7 @@ const viewBienvenida: View = {
             "type": "section",
             "text": {
                 "type": "mrkdwn",
-                "text": "¡Hola! Soy el *Gestor de ComCom*. Habla conmigo para pedirle al Comité de Comunicación que difundan tus eventos. Tienes dos formas de hacerlo:"
+                "text": "¡Hola <@U01D8K4SB2S>! Soy el *Gestor de ComCom*. Habla conmigo para pedirle al Comité de Comunicación que difundan tus eventos. Tienes dos formas de hacerlo:"
             }
         },
         {
