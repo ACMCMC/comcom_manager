@@ -50,7 +50,7 @@ function enviarEventoSubmit(payload: any): Promise<any> {
     evento.date = new Date(valoresForm['date']['date-action']['selected_date']);
     evento.contact = valoresForm['contact']['contact-action']['selected_conversation'];
     evento.description = valoresForm['description']['description-action']['value'];
-    evento.userSubmitted = payload['user'];
+    evento.userSubmitted = payload['user']['id'];
     evento.status = EventStatus.PENDIENTE_DE_APROBAR;
 
     const repo: Repository<Event> = connection.getRepository(Event);
