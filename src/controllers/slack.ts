@@ -32,11 +32,14 @@ function enviarEventoShortcut(payload: any): any {
     service.getWebClient().views.open({ trigger_id: payload['trigger_id'], view: viewEnviarEvento });
 }
 
-function enviarEventoSubmit(payload: View): Promise<any> {
+function enviarEventoSubmit(payload: any): Promise<any> {
 
-    console.log(payload);
+    console.log(payload['view']['state']['values']);
+
+    const evento: Event = new Event();
 
     const repo: Repository<Event> = connection.getRepository(Event);
+    repo.save([ evento ]);
     repo.findOne(1).then(e => console.log(e)).catch((err) => console.error(err));
 
     return (Promise.resolve({
